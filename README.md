@@ -17,8 +17,10 @@ You can only send text data that is to be parse to service via a HTTP POST. Any 
 
 There are two parameters that must be included in a form-urlencoded POST:
 * api-key: 
+
 ...matched against the value of parser-key attribute in the credentials.txt file
 * data: 
+
 ...the actual payload that needs to be parsed for Todo items
 
 You can make api-key / parser-key anything you want it to be as long as it doesn't contain spaces. The idea with the key is to put in an extra layer of security that you can easily change should you think your service is compromised. It also means that your Todoist Authentication information is not send around with each call nor can it be caught with man in the middle things etc.
@@ -28,16 +30,29 @@ Suppose you are in a meeting and taking notes in plain text form using whatever 
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus tempor orci eu elementum. Integer vehicula ligula quis lorem aliquet gravida. Fusce commodo nec sapien eget sollicitudin. 
-
 * [ ] ?Lookup the BS Generator App
 * [ ] Buy more ink for the printer
-
 Morbi varius felis sed nunc dapibus posuere. Maecenas fermentum, massa nec cursus cursus, nisi ipsum aliquet turpis, vel vehicula urna justo eu justo. Curabitur urna nibh, mattis vitae augue vitae, vulputate gravida justo. In nec nibh malesuada, commodo tortor eu, rhoncus metus.
-
 * [ ] !Get lotery tickets and retire asap
-
 Morbi vehicula in velit id congue. Sed eu quam tincidunt, congue leo sit amet, aliquam purus. Ut eget tincidunt quam. Integer facilisis risus purus, id ornare leo laoreet in. Suspendisse tortor nibh, ornare congue maximus at, tincidunt at enim.
 ```
+
+There are three action items inside of the text above each is processed by marking them with:
+```* [ ]"```
+
+Tools like Drafts 4 and 1Writer for iPad understand this Markdown and will auto insert it for you etc. But you can change your marker of a todo to anything you like by editing the regex in the todoist-helper.php file.
+
+For each item that is found the following will happen:
+1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal).
+2. A REST call is made to Todoist for each todo item to be added to your Inbox
+
+### Adding Todo items to a particular project
+Sometimes you may not want to have todo items end up in Inbox but instead into a specific project.
+
+
+### Adding Due date and time
+
+### Adding labels / tags
 
 
 
