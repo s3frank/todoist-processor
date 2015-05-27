@@ -53,4 +53,9 @@ Sometimes you may not want to have todo items end up in Inbox but instead into a
 #### Adding labels / tags
 
 
-
+            // The title field can contain in left to right order:
+            // priority: !=high, ?=low and nothing = normal
+            // title: the main title
+            // datestring: marked by ::
+            // project: marked by //
+            // labels: each marked by @
