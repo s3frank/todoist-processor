@@ -38,17 +38,9 @@ There are three action items inside of the text above each is processed by marki
 
 Tools like Drafts 4 and 1Writer for iPad understand this Markdown and will auto insert it for you etc. But you can change your marker of a todo to anything you like by editing the regex in the todoist-helper.php file.
 
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
 For each item that is found the following will happen:
-1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. 
-...The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal)..
+
+1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal).
 2. A REST call is made to Todoist for each todo item to be added to your Inbox
 
 #### Adding Todo items to a particular project
