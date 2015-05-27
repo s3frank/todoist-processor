@@ -39,7 +39,8 @@ There are three action items inside of the text above each is processed by marki
 Tools like Drafts 4 and 1Writer for iPad understand this Markdown and will auto insert it for you etc. But you can change your marker of a todo to anything you like by editing the regex in the todoist-helper.php file.
 
 For each item that is found the following will happen:
-1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal).
+1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. 
+...The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal)..
 2. A REST call is made to Todoist for each todo item to be added to your Inbox
 
 #### Adding Todo items to a particular project
@@ -47,6 +48,7 @@ Sometimes you may not want to have todo items end up in Inbox but instead into a
 
 
 #### Adding Due date and time
+
 
 #### Adding labels / tags
 
