@@ -26,16 +26,18 @@ You can make api-key / parser-key anything you want it to be as long as it doesn
 #### A basic parsing example
 Suppose you are in a meeting and taking notes in plain text form using whatever device of your choosing. There is some background stuff you might need later and then in the meeting some items get discussed that require you to follow up and take action. Your notes might look like this:
 
-```Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus tempor orci eu elementum. Integer vehicula ligula quis lorem aliquet gravida. Fusce commodo nec sapien eget sollicitudin. Nulla ultrices pretium nisi vitae suscipit. Mauris non elementum diam, et sollicitudin augue. Aenean tincidunt odio eu dignissim semper. Duis sed nunc non urna rutrum finibus. Donec accumsan eleifend libero quis pellentesque. Ut ultricies odio quis sem euismod aliquam.
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus tempor orci eu elementum. Integer vehicula ligula quis lorem aliquet gravida. Fusce commodo nec sapien eget sollicitudin. 
 
 * [ ] ?Lookup the BS Generator App
 * [ ] Buy more ink for the printer
 
-Morbi varius felis sed nunc dapibus posuere. Maecenas fermentum, massa nec cursus cursus, nisi ipsum aliquet turpis, vel vehicula urna justo eu justo. Curabitur urna nibh, mattis vitae augue vitae, vulputate gravida justo. Pellentesque interdum aliquam ullamcorper. Curabitur enim orci, fermentum at ultrices ac, rhoncus ac nisl. Duis at lorem eget neque elementum tempus eu at massa. Proin magna ipsum, luctus nec ligula quis, accumsan luctus nibh. In nec nibh malesuada, commodo tortor eu, rhoncus metus.
+Morbi varius felis sed nunc dapibus posuere. Maecenas fermentum, massa nec cursus cursus, nisi ipsum aliquet turpis, vel vehicula urna justo eu justo. Curabitur urna nibh, mattis vitae augue vitae, vulputate gravida justo. In nec nibh malesuada, commodo tortor eu, rhoncus metus.
 
 * [ ] !Get lotery tickets and retire asap
 
-Morbi vehicula in velit id congue. Sed eu quam tincidunt, congue leo sit amet, aliquam purus. Ut eget tincidunt quam. Integer facilisis risus purus, id ornare leo laoreet in. Suspendisse tortor nibh, ornare congue maximus at, tincidunt at enim. Vivamus fermentum pulvinar mi. Duis mauris quam, congue id felis vel, fermentum tincidunt felis.```
+Morbi vehicula in velit id congue. Sed eu quam tincidunt, congue leo sit amet, aliquam purus. Ut eget tincidunt quam. Integer facilisis risus purus, id ornare leo laoreet in. Suspendisse tortor nibh, ornare congue maximus at, tincidunt at enim.
+```
 
 
 
