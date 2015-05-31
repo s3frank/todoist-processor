@@ -9,7 +9,7 @@ If you don't have any public php server at your disposal then I suggest you take
 
 # How to Use once Deployed
 Throughout this example we will assume the following:
-- Main URL: http://td.parser.com/parse.php
+- Fake Main URL: http://td.parser.com/parse.php
 - All other files are inaccessible by the outside world
 
 ### POST Data to parse.php
@@ -36,18 +36,31 @@ Morbi vehicula in velit id congue. Sed eu quam tincidunt, congue leo sit amet, a
 There are three action items inside of the text above each is processed by marking them with:
 ```* [ ]```
 
-Tools like Drafts 4 and 1Writer for iPad understand this Markdown and will auto insert it for you etc. But you can change your marker of a todo to anything you like by editing the regex in the todoist-helper.php file.
+Apps like Drafts 4 and 1Writer for iPad understand this Markdown and will auto insert it for you etc. But you can change your marker of a todo to anything you like by editing the regex in the todoist-helper.php file. Look for the function named ```parseTodos()```
 
 For each item that is found the following will happen:
 
 1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal).
 2. A REST call is made to Todoist for each todo item to be added to your Inbox
 
-#### Adding Todo items to a particular project
-Sometimes you may not want to have todo items end up in Inbox but instead into a specific project.
-
-
 #### Adding Due date and time
+The Todoist API exposes a separate field for passing a "natural language" due date and time string at creation time of a todo item. You can optionally take advantage of this by adding to the todo item a double colon followed by the date-time string. You can find out more about the various possible structures (can even do funky recurring things) of this date time string from this link: https://todoist.com/help/datestimes
+
+So if we would modify the 2nd todo item in example above and set a due date and time for next friday at 2pm it would look like this:
+```* [ ] Buy more ink for the printer :: next friday at 2pm```
+
+The double colon and date-time string will not end up in the todo item content.
+
+
+#### Adding Todo items to a particular project
+Sometimes you may not want to have todo items ending up in Inbox but instead into a specific project. This can be done by adding to the Todo item a double forward slash followed by the project name you would like to add the todo item to. If the Project does not exist yet it will be created automagically. So if we would modify the 2nd todo item in example above to have it go into the "Work" project it would look like this:
+```* [ ] Buy more ink for the printer :: next friday at 2pm //Work```
+or
+```* [ ] Buy more ink for the printer :: next friday at 2pm // Work```
+
+Notice the whitespace between the double forward slashes and the Project? It doesn't matter how many spaces etc you put between them, it's trimmed out both left and right.
+* You can only have one project in each line item. 
+* The project and the forward slashes will not end up in the todo item content. 
 
 
 #### Adding labels / tags
