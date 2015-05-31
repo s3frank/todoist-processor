@@ -47,6 +47,7 @@ For each item that is found the following will happen:
 The Todoist API exposes a separate field for passing a "natural language" due date and time string at creation time of a todo item. You can optionally take advantage of this by adding to the todo item a double colon followed by the date-time string. You can find out more about the various possible structures (can even do funky recurring things) of this date time string from this link: https://todoist.com/help/datestimes
 
 So if we would modify the 2nd todo item in example above and set a due date and time for next friday at 2pm it would look like this:
+
 ```* [ ] Buy more ink for the printer :: next friday at 2pm```
 
 The double colon and date-time string will not end up in the todo item content.
@@ -54,8 +55,11 @@ The double colon and date-time string will not end up in the todo item content.
 
 #### Adding Todo items to a particular project
 Sometimes you may not want to have todo items ending up in Inbox but instead into a specific project. This can be done by adding to the Todo item a double forward slash followed by the project name you would like to add the todo item to. If the Project does not exist yet it will be created automagically. So if we would modify the 2nd todo item in example above to have it go into the "Work" project it would look like this:
+
 ```* [ ] Buy more ink for the printer :: next friday at 2pm //Work```
+
 or
+
 ```* [ ] Buy more ink for the printer :: next friday at 2pm // Work```
 
 Notice the whitespace between the double forward slashes and the Project? It doesn't matter how many spaces etc you put between them, it's trimmed out both left and right.
