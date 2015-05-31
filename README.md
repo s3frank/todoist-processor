@@ -21,6 +21,7 @@ There are two parameters that must be included in a form-urlencoded POST:
 
 You can make api-key / parser-key anything you want it to be as long as it doesn't contain spaces. The idea with the key is to put in an extra layer of security that you can easily change should you think your service is compromised. It also means that your Todoist Authentication information is not send around with each call nor can it be caught with man in the middle things etc.
 
+
 #### A basic parsing example
 Suppose you are in a meeting and taking notes in plain text form using whatever device of your choosing. There is some background stuff you might need later and then in the meeting some items get discussed that require you to follow up and take action. Your notes might look like this:
 
@@ -42,6 +43,8 @@ For each item that is found the following will happen:
 
 1. Check the priority by verifying if the first character after the marker is either an exclamation, question or neither. The todo item created in Todoist has priority mapped accordingly (!=high, ?=low, anything else=normal).
 2. A REST call is made to Todoist for each todo item to be added to your Inbox
+
+
 
 #### Adding Due date and time
 The Todoist API exposes a separate field for passing a "natural language" due date and time string at creation time of a todo item. You can optionally take advantage of this by adding to the todo item a double colon followed by the date-time string. You can find out more about the various possible structures (can even do funky recurring things) of this date time string from this link: https://todoist.com/help/datestimes
@@ -65,6 +68,7 @@ or
 Notice the whitespace between the double forward slashes and the Project? It doesn't matter how many spaces etc you put between them, it's trimmed out both left and right.
 * You can only have one project in each line item. 
 * The project and the forward slashes will not end up in the todo item content. 
+
 
 
 #### Adding labels / tags
