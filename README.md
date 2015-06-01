@@ -74,7 +74,7 @@ Notice the whitespace between the double forward slashes and the Project? It doe
 #### Adding labels / tags
 Last but not least Todoist support the notion of labels to do some basic tagging. Inside the Todoist UI you can easily see all items that ar tagged with a certain label regardless of the project they belong to. Pretty handy feature and it's supported in the parser simply by adding one or more ```@your_tag``` at the end of your todo item. So if we would modify the 2nd todo item in example above and tag it with two labels named ```brain-drain``` and ```boss``` it would look like this:
 
-```* [ ] Buy more ink for the printer :: next friday at 2pm // Work @brain-drain @boss```
+```* [ ] Buy more ink for the printer :: next friday at 2pm //Work @brain-drain @boss```
 
 That's all there is to it for now. If you have ideas, suggestions or want to contribute to the code let me know!
 
