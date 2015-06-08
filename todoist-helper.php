@@ -10,24 +10,12 @@ define("ADD_TODO", "/addItem");
 define("GET_OPEN_TODO", "/getUncompletedItems");
 define("GET_CLOSED_TODO", "/getAllCompletedItems");
 
-function authenticate()
+function tdInit()
 {
     // parse the credentials.txt file for auth parameters for the Todoist account
     $credentials = getNameValuesFromFile("credentials.txt");
-
-    // Todoist Auth Constant attributes
-    define("USER_ID", trim($credentials["td_user_id"]));
-    define("USER_PWD", trim($credentials["td_user_pwd"]));    
-
-    // Sign in and define our user token for further communication as a constant as well.
-    $userAuth = json_decode(file_get_contents(APIS_BASE . LOGIN . "?email=" . USER_ID . "&password=" . USER_PWD));  
-    
-    // Check for Login Error's first
-    if (strcasecmp(print_r($userAuth, true), "LOGIN_ERROR") == 0) return "LOGIN_ERROR";
-    
-    // Set the token constant up and return it as well. 
-    if(isset($userAuth) and isset($userAuth->token)) define("AUTH_TOKEN", $userAuth->token);
-    return AUTH_TOKEN;
+	define("AUTH_TOKEN", trim($credentials["td_api_key"]));
+	return AUTH_TOKEN;
 }
 
 
