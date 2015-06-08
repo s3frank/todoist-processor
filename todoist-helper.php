@@ -10,11 +10,13 @@ define("ADD_TODO", "/addItem");
 define("GET_OPEN_TODO", "/getUncompletedItems");
 define("GET_CLOSED_TODO", "/getAllCompletedItems");
 
-function tdInit()
+private function init()
 {
-    // parse the credentials.txt file for auth parameters for the Todoist account
-    $credentials = getNameValuesFromFile("credentials.txt");
-	define("AUTH_TOKEN", trim($credentials["td_api_key"]));
+    // parse the credentials.txt file for the Todoist API token for the Todoist account
+	if(defined("AUTH_TOKEN") == false)
+	{
+		define("AUTH_TOKEN", trim(getNameValuesFromFile("credentials.txt")["td_api_key"]));
+	}
 	return AUTH_TOKEN;
 }
 
@@ -91,7 +93,11 @@ function getCheckedItems($project)
 // Create a new todo in Todoist
 function processTodo($todo)
 {
+	// If no todo we just return	
     if (isset($todo) == false) return;
+	
+	// We got something so lets setup the Todoist token first
+	init();
           
     // Validate the project was set. Create it if non existing or ignore it when creating the todo item.
     $the_project = validateProject($todo->project, true);
@@ -133,9 +139,10 @@ function processTodo($todo)
 // Parse text for Todo items
 function parseTodos($parseInput)
 {
+	// See the readme.md file for details on the current structure / syntax for TD items to be parsed using the below logic.
+	// https://github.com/s3frank/todoist-processor/blob/master/README.md
+	
     $strTest = $parseInput;
-//    Keep this around for debugging and testing
-//    $strTest = "This is line 1 and it's just notes Same but this is line 2 * [ ] Action item 1 * [ ] *Action item 2 * [ ] Checked item 1\n* [x] Unchecked item 3\n\n* Some more text here #\n* And some more text here    agagagd\n* [ ] Item number 4\n\n# Meyer text\n**Vette text**\n* *I test the bo";
     $re = "/(?:\\n|^)(?:\\s*)(?:(?:\\-|\\*) )(?:\\[( |x)\\] )(.+)/i"; 
     $rgx_count = preg_match_all($re, $strTest, $todos);
     if($rgx_count > 0)
